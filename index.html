@@ -1,10 +1,194 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>My First Website</title>
-  </head>
-  <body>
-    <h1>Hello, my site is live!</h1>
-    <p>This is my first deployment on Vercel.</p>
-  </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>enwento</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        /* 
+        ============================
+        Base Styles
+        These set global defaults for typography, spacing, and colors.
+        ============================
+        */
+        :root {
+            --bg-color: #f7f7f7;
+            --text-color: #2e2e2e;
+            --muted-color: #6b6b6b;
+            --accent-color: #3a3a3a;
+            --card-bg: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* 
+        ============================
+        Layout Container
+        Centers content and limits width for readability.
+        ============================
+        */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem;
+        }
+
+        section {
+            margin-bottom: 4rem;
+        }
+
+        h1, h2 {
+            font-weight: 600;
+            color: var(--accent-color);
+        }
+
+        h2 {
+            margin-bottom: 1rem;
+        }
+
+        p {
+            color: var(--muted-color);
+        }
+
+        /* 
+        ============================
+        Hero Section
+        A simple introduction with name and role.
+        ============================
+        */
+        .hero {
+            text-align: center;
+            padding-top: 4rem;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+        }
+
+        /* 
+        ============================
+        About Section
+        Short paragraph describing background or goals.
+        ============================
+        */
+        .about {
+            background-color: var(--card-bg);
+            padding: 2rem;
+            border-radius: 6px;
+        }
+
+        /* 
+        ============================
+        Skills Section
+        Uses a simple grid to list skills cleanly.
+        ============================
+        */
+        .skills-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1rem;
+        }
+
+        .skill {
+            background-color: var(--card-bg);
+            padding: 0.75rem 1rem;
+            border-radius: 4px;
+            text-align: center;
+            font-size: 0.95rem;
+            color: var(--accent-color);
+        }
+
+        /* 
+        ============================
+        Contact Section
+        Displays contact information clearly without a form.
+        ============================
+        */
+        .contact {
+            text-align: center;
+        }
+
+        .contact p {
+            margin-bottom: 0.5rem;
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 
+    HERO SECTION
+    Purpose: Make a strong first impression with name and professional focus.
+    -->
+    <section class="hero container">
+        <h1>enwento</h1>
+        <p>Web Developer graphic design branding and media house</p>
+    </section>
+
+    <!-- 
+    ABOUT SECTION
+    Purpose: Briefly explain who you are, your interests, or career goals.
+    -->
+    <section class="about container">
+        <h2>About Me</h2>
+        <p>
+            we are a team of people who build clean, accessible, 
+            and user-friendly websites. we enjoy turning ideas into simple and 
+            functional designs while continuously improving my skills.
+        </p>
+    </section>
+
+    <!-- 
+    SKILLS SECTION
+    Purpose: Highlight key technical or professional skills in a simple list.
+    -->
+    <section class="container">
+        <h2>Skills</h2>
+        <div class="skills-list">
+            <div class="skill">HTML</div>
+            <div class="skill">CSS</div>
+            <div class="skill">Responsive Design</div>
+            <div class="skill">Git Basics</div>
+            <div class="skill">Problem Solving</div>
+        </div>
+    </section>
+
+    <!-- 
+    CONTACT SECTION
+    Purpose: Provide clear ways for someone to reach you.
+    -->
+    <section class="contact container">
+        <h2>Contact</h2>
+        <p>Email: <a href="mailto:sahilsangwan1509@gmail.com">youremail@example.com</a></p>
+        <p>LinkedIn: <a href="#" target="_blank">linkedin.com/in/yourname</a></p>
+    </section>
+
+</body>
 </html>
+
