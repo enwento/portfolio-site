@@ -1,194 +1,241 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>enwento</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Enwento® – Creative Branding, Design & Media Agency</title>
+  <meta name="description" content="Enwento is a creative branding, graphic design, web design and media house helping brands grow through strategy, storytelling and aesthetics." />
+  <meta name="keywords" content="branding agency, graphic design studio, web design agency, media house, brand identity, UI UX design, SEO optimized websites" />
+  <meta name="author" content="Enwento" />
 
-    <style>
-        /* 
-        ============================
-        Base Styles
-        These set global defaults for typography, spacing, and colors.
-        ============================
-        */
-        :root {
-            --bg-color: #f7f7f7;
-            --text-color: #2e2e2e;
-            --muted-color: #6b6b6b;
-            --accent-color: #3a3a3a;
-            --card-bg: #ffffff;
-        }
+  <!-- Fonts (Aviato‑style minimal modern typography) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+  <style>
+    :root {
+      --bg: #0b0b0b;
+      --fg: #ffffff;
+      --muted: #9a9a9a;
+      --accent: #f5f5f5;
+      --card: #141414;
+    }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
-        }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        /* 
-        ============================
-        Layout Container
-        Centers content and limits width for readability.
-        ============================
-        */
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 3rem 1.5rem;
-        }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
 
-        section {
-            margin-bottom: 4rem;
-        }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-        h1, h2 {
-            font-weight: 600;
-            color: var(--accent-color);
-        }
+    section {
+      padding: 120px 8vw;
+    }
 
-        h2 {
-            margin-bottom: 1rem;
-        }
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 32px;
+    }
 
-        p {
-            color: var(--muted-color);
-        }
+    .logo {
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+    }
 
-        /* 
-        ============================
-        Hero Section
-        A simple introduction with name and role.
-        ============================
-        */
-        .hero {
-            text-align: center;
-            padding-top: 4rem;
-        }
+    h1 {
+      font-size: clamp(42px, 6vw, 88px);
+      font-weight: 600;
+      max-width: 900px;
+    }
 
-        .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-        }
+    .sub {
+      font-size: 18px;
+      max-width: 640px;
+      color: var(--muted);
+    }
 
-        .hero p {
-            font-size: 1.1rem;
-        }
+    .cta {
+      margin-top: 24px;
+      display: inline-block;
+      padding: 14px 32px;
+      border: 1px solid var(--fg);
+      border-radius: 50px;
+      font-size: 14px;
+      letter-spacing: 0.1em;
+      transition: all 0.3s ease;
+    }
 
-        /* 
-        ============================
-        About Section
-        Short paragraph describing background or goals.
-        ============================
-        */
-        .about {
-            background-color: var(--card-bg);
-            padding: 2rem;
-            border-radius: 6px;
-        }
+    .cta:hover {
+      background: var(--fg);
+      color: var(--bg);
+    }
 
-        /* 
-        ============================
-        Skills Section
-        Uses a simple grid to list skills cleanly.
-        ============================
-        */
-        .skills-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 1rem;
-        }
+    .section-title {
+      font-size: 48px;
+      margin-bottom: 48px;
+      font-weight: 500;
+    }
 
-        .skill {
-            background-color: var(--card-bg);
-            padding: 0.75rem 1rem;
-            border-radius: 4px;
-            text-align: center;
-            font-size: 0.95rem;
-            color: var(--accent-color);
-        }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 32px;
+    }
 
-        /* 
-        ============================
-        Contact Section
-        Displays contact information clearly without a form.
-        ============================
-        */
-        .contact {
-            text-align: center;
-        }
+    .card {
+      background: var(--card);
+      padding: 40px;
+      border-radius: 24px;
+    }
 
-        .contact p {
-            margin-bottom: 0.5rem;
-        }
+    .card h3 {
+      font-size: 22px;
+      margin-bottom: 16px;
+    }
 
-        a {
-            color: var(--accent-color);
-            text-decoration: none;
-            font-weight: 500;
-        }
+    .card p {
+      color: var(--muted);
+      font-size: 15px;
+    }
 
-        a:hover {
-            text-decoration: underline;
-        }
-    </style>
+    .portfolio-item {
+      border: 1px solid #1f1f1f;
+      border-radius: 20px;
+      padding: 32px;
+    }
+
+    video {
+      width: 100%;
+      border-radius: 16px;
+      margin-top: 16px;
+    }
+
+    .faq h4 {
+      margin-bottom: 12px;
+    }
+
+    footer {
+      padding: 80px 8vw 40px;
+      border-top: 1px solid #1f1f1f;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    footer a {
+      margin-right: 24px;
+    }
+  </style>
 </head>
 <body>
 
-    <!-- 
-    HERO SECTION
-    Purpose: Make a strong first impression with name and professional focus.
-    -->
-   <section class="hero container">
-    <h1>enwento</h1>
-    <p>Building meaningful digital presence for modern brands.</p>
-</section>
+  <section class="hero">
+    <div class="logo">ENWENTO</div>
+    <h1>We design brands that feel inevitable.</h1>
+    <p class="sub">
+      Enwento is a creative branding and media agency crafting visual identities, digital experiences, and narratives that help modern brands stand out, scale, and stay remembered.
+    </p>
+    <a href="mailto:sahilsangwan1509@gmail.com" class="cta">START A PROJECT</a>
+  </section>
 
-    <!-- 
-    ABOUT SECTION
-    Purpose: Briefly explain who you are, your interests, or career goals.
-    -->
-    <section class="about container">
-        <h2>About Me</h2>
+  <section>
+    <h2 class="section-title">Our Services</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Brand Identity & Strategy</h3>
         <p>
-            we are a team of people who build clean, accessible, 
-            and user-friendly websites. we enjoy turning ideas into simple and 
-            functional designs while continuously improving my skills.
+          We build brands from the ground up—logos, typography systems, color psychology, and brand guidelines rooted in strategy. Every identity we create is scalable, timeless, and built to win trust.
         </p>
-    </section>
+      </div>
+      <div class="card">
+        <h3>Graphic Design</h3>
+        <p>
+          High‑impact visuals for social media, marketing campaigns, brochures, presentations, and print. Designed with clarity, hierarchy, and storytelling at the core.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Web Design & Development</h3>
+        <p>
+          SEO‑optimized, high‑performance websites built for speed, accessibility, and conversions. Clean UI, modern UX, and future‑ready code that works seamlessly on every device.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Media & Content</h3>
+        <p>
+          Scroll‑stopping reels, motion graphics, branded videos, and digital assets engineered for engagement across Instagram, YouTube, and emerging platforms.
+        </p>
+      </div>
+    </div>
+  </section>
 
-    <!-- 
-    SKILLS SECTION
-    Purpose: Highlight key technical or professional skills in a simple list.
-    -->
-    <section class="container">
-        <h2>Skills</h2>
-        <div class="skills-list">
-            <div class="skill">HTML</div>
-            <div class="skill">CSS</div>
-            <div class="skill">Responsive Design</div>
-            <div class="skill">Git Basics</div>
-            <div class="skill">Problem Solving</div>
-        </div>
-    </section>
+  <section>
+    <h2 class="section-title">Selected Work</h2>
+    <div class="grid">
+      <div class="portfolio-item">
+        <h3>Website Concept – Minimal SaaS</h3>
+        <p class="sub">A clean, conversion‑focused website template designed with clarity, whitespace, and modern typography.</p>
+      </div>
+      <div class="portfolio-item">
+        <h3>Instagram Post Design</h3>
+        <p class="sub">A bold social media template focused on contrast, hierarchy, and brand recall.</p>
+      </div>
+      <div class="portfolio-item">
+        <h3>Corporate Brochure</h3>
+        <p class="sub">A multi‑page brochure layout designed for premium brands and professional storytelling.</p>
+      </div>
+      <div class="portfolio-item">
+        <h3>Reel / Motion Template</h3>
+        <p class="sub">Short‑form video design optimized for engagement.</p>
+        <video autoplay muted loop playsinline>
+          <source src="reel-sample.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </section>
 
-    <!-- 
-    CONTACT SECTION
-    Purpose: Provide clear ways for someone to reach you.
-    -->
-    <section class="contact container">
-        <h2>Contact</h2>
-        <p>Email: <a href="mailto:sahilsangwan1509@gmail.com">youremail@example.com</a></p>
-        <p>LinkedIn: <a href="#" target="_blank">linkedin.com/in/yourname</a></p>
-    </section>
+  <section class="faq">
+    <h2 class="section-title">FAQs</h2>
+    <div class="grid">
+      <div class="card">
+        <h4>What industries do you work with?</h4>
+        <p>We collaborate with startups, creators, agencies, and established brands across tech, fashion, lifestyle, and digital products.</p>
+      </div>
+      <div class="card">
+        <h4>Do you offer custom packages?</h4>
+        <p>Yes. Every project is tailored based on scope, goals, and growth stage.</p>
+      </div>
+      <div class="card">
+        <h4>How do we start?</h4>
+        <p>Simply email us or reach out on X. We respond within 24 hours.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div>
+      <a href="https://x.com/SahilSangwann" target="_blank">X / Sahil Sangwann</a>
+      <a href="mailto:sahilsangwan1509@gmail.com">Email</a>
+    </div>
+    <p style="margin-top:24px;">© 2026 Enwento. All rights reserved.</p>
+  </footer>
 
 </body>
 </html>
+
 
