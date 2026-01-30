@@ -3,12 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>enwento Studio</title>
-  <meta name="description" content="enwento Studio is a creative branding, graphic design, web design, and media studio helping brands grow through strategy, storytelling, and modern digital experiences." />
-  <meta name="keywords" content="branding agency, graphic design studio, web design agency, media house, brand identity, UI UX design, SEO optimized websites" />
+
+  <!-- SEO -->
+  <title>Enwento Studio</title>
+  <meta name="description" content="Enwento Studio is a creative branding, graphic design, web design, and media agency crafting distinctive visual identities, digital experiences, and content that help brands grow and stand out." />
+  <meta name="keywords" content="Enwento Studio, branding agency, graphic design studio, web design agency, media house, brand identity, UI UX design, creative studio" />
   <meta name="author" content="Enwento" />
 
-  <!-- Fonts (Aviato‑style minimal modern typography) -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -17,16 +19,13 @@
     :root {
       --bg: #023E35;
       --fg: #ffffff;
-      --muted: #9a9a9a;
-      --accent: #f5f5f5;
-      --card: #141414;
+      --gray: #d1d5db;
+      --muted: #9ca3af;
+      --card: rgba(255,255,255,0.06);
+      --border: rgba(255,255,255,0.12);
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
       font-family: 'Inter', sans-serif;
@@ -36,14 +35,27 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
+    a { color: inherit; text-decoration: none; }
+
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 28px 8vw;
+      display: flex;
+      align-items: center;
+      background: rgba(2,62,53,0.65);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
     }
 
-    section {
-      padding: 120px 8vw;
+    header img {
+      height: 30px;
+      width: auto;
+      display: block;
     }
+
+    section { padding: 120px 8vw; }
 
     .hero {
       min-height: 100vh;
@@ -51,12 +63,7 @@
       flex-direction: column;
       justify-content: center;
       gap: 32px;
-    }
-
-    .logo {
-      font-size: 22px;
-      font-weight: 600;
-      letter-spacing: 0.08em;
+      padding-top: 180px;
     }
 
     h1 {
@@ -68,28 +75,25 @@
     .sub {
       font-size: 18px;
       max-width: 640px;
-      color: var(--muted);
+      color: var(--gray);
     }
 
     .cta {
       margin-top: 24px;
       display: inline-block;
-      padding: 14px 32px;
-      border: 1px solid var(--fg);
+      padding: 14px 34px;
+      border: 1px solid var(--gray);
       border-radius: 50px;
-      font-size: 14px;
-      letter-spacing: 0.1em;
+      font-size: 13px;
+      letter-spacing: 0.14em;
       transition: all 0.3s ease;
     }
 
-    .cta:hover {
-      background: var(--fg);
-      color: var(--bg);
-    }
+    .cta:hover { background: var(--fg); color: var(--bg); }
 
     .section-title {
-      font-size: 48px;
-      margin-bottom: 48px;
+      font-size: 46px;
+      margin-bottom: 56px;
       font-weight: 500;
     }
 
@@ -103,137 +107,134 @@
       background: var(--card);
       padding: 40px;
       border-radius: 24px;
+      border: 1px solid var(--border);
     }
 
-    .card h3 {
-      font-size: 22px;
-      margin-bottom: 16px;
-    }
+    .card h3 { font-size: 22px; margin-bottom: 16px; }
+    .card p { color: var(--gray); font-size: 15px; }
 
-    .card p {
-      color: var(--muted);
-      font-size: 15px;
+    /* Portfolio */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
     }
 
     .portfolio-item {
-      border: 1px solid #1f1f1f;
-      border-radius: 20px;
-      padding: 32px;
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: #0b3f37;
     }
 
-    video {
+    .portfolio-item img {
       width: 100%;
-      border-radius: 16px;
-      margin-top: 16px;
+      height: 220px;
+      object-fit: cover;
+      display: block;
     }
 
-    .faq h4 {
-      margin-bottom: 12px;
+    .portfolio-content {
+      padding: 28px;
+    }
+
+    .portfolio-content h3 {
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+
+    .portfolio-content p {
+      font-size: 14px;
+      color: var(--muted);
     }
 
     footer {
       padding: 80px 8vw 40px;
-      border-top: 1px solid #1f1f1f;
-      color: var(--muted);
+      border-top: 1px solid var(--border);
+      color: var(--gray);
       font-size: 14px;
     }
 
-    footer a {
-      margin-right: 24px;
-    }
+    footer a { margin-right: 24px; }
   </style>
 </head>
 <body>
 
-  <section class="hero">
-    <div class="logo">ENWENTO</div>
-    <h1>We design brands that feel inevitable.</h1>
-    <p class="sub">
-      Enwento is a creative branding and media agency crafting visual identities, digital experiences, and narratives that help modern brands stand out, scale, and stay remembered.
-    </p>
-    <a href="mailto:sahilsangwan1509@gmail.com" class="cta">START A PROJECT</a>
-  </section>
+<header>
+  <a href="#" aria-label="Enwento Home" style="display:flex;align-items:center;">
+    <img src="Gemini_Generated_Image_h9496ch9496ch949.png" alt="Enwento logo" style="height:34px;width:auto;display:block;" />
+  </a>
+</header>
 
-  <section>
-    <h2 class="section-title">Our Services</h2>
-    <div class="grid">
-      <div class="card">
-        <h3>Brand Identity & Strategy</h3>
-        <p>
-          We build brands from the ground up—logos, typography systems, color psychology, and brand guidelines rooted in strategy. Every identity we create is scalable, timeless, and built to win trust.
-        </p>
-      </div>
-      <div class="card">
-        <h3>Graphic Design</h3>
-        <p>
-          High‑impact visuals for social media, marketing campaigns, brochures, presentations, and print. Designed with clarity, hierarchy, and storytelling at the core.
-        </p>
-      </div>
-      <div class="card">
-        <h3>Web Design & Development</h3>
-        <p>
-          SEO‑optimized, high‑performance websites built for speed, accessibility, and conversions. Clean UI, modern UX, and future‑ready code that works seamlessly on every device.
-        </p>
-      </div>
-      <div class="card">
-        <h3>Media & Content</h3>
-        <p>
-          Scroll‑stopping reels, motion graphics, branded videos, and digital assets engineered for engagement across Instagram, YouTube, and emerging platforms.
-        </p>
+<section class="hero">
+  <h1>We design brands that feel inevitable.</h1>
+  <p class="sub">
+    Enwento is a creative branding and media studio building refined visual identities, digital experiences, and content systems for modern brands.
+  </p>
+  <a href="mailto:sahilsangwan1509@gmail.com" class="cta">START A PROJECT</a>
+</section>
+
+<section>
+  <h2 class="section-title">Our Services</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Brand Identity & Strategy</h3>
+      <p>Logos, typography, color systems, and brand guidelines rooted in strategy and long-term scalability.</p>
+    </div>
+    <div class="card">
+      <h3>Graphic Design</h3>
+      <p>High-impact visuals for social media, brochures, marketing campaigns, and digital assets.</p>
+    </div>
+    <div class="card">
+      <h3>Web Design & Development</h3>
+      <p>Modern, SEO-optimized websites built for performance, clarity, and conversions.</p>
+    </div>
+    <div class="card">
+      <h3>Media & Content</h3>
+      <p>Short-form videos, reels, motion graphics, and branded content engineered for engagement.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2 class="section-title">Selected Work</h2>
+  <div class="portfolio-grid">
+
+    <div class="portfolio-item">
+      <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f" alt="Brand identity design" />
+      <div class="portfolio-content">
+        <h3>Brand Identity System</h3>
+        <p>Complete visual identity designed for a modern digital-first brand.</p>
       </div>
     </div>
-  </section>
 
-  <section>
-    <h2 class="section-title">Selected Work</h2>
-    <div class="grid">
-      <div class="portfolio-item">
-        <h3>Website Concept – Minimal SaaS</h3>
-        <p class="sub">A clean, conversion‑focused website template designed with clarity, whitespace, and modern typography.</p>
-      </div>
-      <div class="portfolio-item">
-        <h3>Instagram Post Design</h3>
-        <p class="sub">A bold social media template focused on contrast, hierarchy, and brand recall.</p>
-      </div>
-      <div class="portfolio-item">
-        <h3>Corporate Brochure</h3>
-        <p class="sub">A multi‑page brochure layout designed for premium brands and professional storytelling.</p>
-      </div>
-      <div class="portfolio-item">
-        <h3>Reel / Motion Template</h3>
-        <p class="sub">Short‑form video design optimized for engagement.</p>
-        <video autoplay muted loop playsinline>
-          <source src="reel-sample.mp4" type="video/mp4">
-        </video>
+    <div class="portfolio-item">
+      <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085" alt="Website design" />
+      <div class="portfolio-content">
+        <h3>Website Design</h3>
+        <p>Minimal, conversion-focused website concept with clean UI and UX.</p>
       </div>
     </div>
-  </section>
 
-  <section class="faq">
-    <h2 class="section-title">FAQs</h2>
-    <div class="grid">
-      <div class="card">
-        <h4>What industries do you work with?</h4>
-        <p>We collaborate with startups, creators, agencies, and established brands across tech, fashion, lifestyle, and digital products.</p>
-      </div>
-      <div class="card">
-        <h4>Do you offer custom packages?</h4>
-        <p>Yes. Every project is tailored based on scope, goals, and growth stage.</p>
-      </div>
-      <div class="card">
-        <h4>How do we start?</h4>
-        <p>Simply email us or reach out on X. We respond within 24 hours.</p>
+    <div class="portfolio-item">
+      <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7" alt="Social media design" />
+      <div class="portfolio-content">
+        <h3>Social Media Graphics</h3>
+        <p>High-contrast Instagram post and campaign design system.</p>
       </div>
     </div>
-  </section>
 
-  <footer>
-    <div>
-      <a href="https://x.com/SahilSangwann" target="_blank">X / Sahil Sangwann</a>
-      <a href="mailto:sahilsangwan1509@gmail.com">Email</a>
-    </div>
-    <p style="margin-top:24px;">© 2026 Enwento. All rights reserved.</p>
-  </footer>
+  </div>
+</section>
+
+<footer>
+  <div>
+    <a href="https://x.com/SahilSangwann" target="_blank">X / Sahil Sangwann</a>
+    <a href="https://x.com/ASIF_ALI" target="_blank">X / ASIF_ALI</a>
+    <a href="mailto:sahilsangwan1509@gmail.com">Email</a>
+  </div>
+  <p style="margin-top:24px;">© 2026 Enwento. All rights reserved.</p>
+</footer>
 
 </body>
 </html>
