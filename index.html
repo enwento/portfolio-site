@@ -4,237 +4,653 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- SEO -->
-  <title>Enwento Studio</title>
-  <meta name="description" content="Enwento Studio is a creative branding, graphic design, web design, and media agency crafting distinctive visual identities, digital experiences, and content that help brands grow and stand out." />
-  <meta name="keywords" content="Enwento Studio, branding agency, graphic design studio, web design agency, media house, brand identity, UI UX design, creative studio" />
-  <meta name="author" content="Enwento" />
+  <!-- Primary SEO Meta Tags -->
+  <title>Enwento Studio | Premium Brand Identity & Digital Design Agency</title>
+  <meta name="title" content="Enwento Studio | Premium Brand Identity & Digital Design Agency" />
+  <meta name="description" content="Enwento Studio crafts inevitable brand identities, high-performance web experiences, and cinematic digital content. Transform your ambition into visual authority." />
+  <meta name="keywords" content="Enwento Studio, branding agency, visual identity design, UI UX design, digital design studio, premium branding, web design agency, creative media house" />
+  <meta name="author" content="Enwento Studio" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://enwento.com/" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://enwento.com/" />
+  <meta property="og:title" content="Enwento Studio | Visual Identity & Digital Craft" />
+  <meta property="og:description" content="Strategic craft merging artistic intuition with technical precision. We build brands that don't just exist—they lead." />
+  <meta property="og:image" content="https://enwento.com/og-image.jpg" />
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://enwento.com/" />
+  <meta property="twitter:title" content="Enwento Studio | Premium Brand Identity & Digital Design" />
+  <meta property="twitter:description" content="Crafting distinctive visual identities and digital ecosystems for the next generation of brands." />
+  <meta property="twitter:image" content="https://enwento.com/twitter-image.jpg" />
+
+  <!-- Structured Data (JSON-LD) for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Enwento Studio",
+    "image": "https://enwento.com/logovector.svg",
+    "@id": "https://enwento.com",
+    "url": "https://enwento.com",
+    "telephone": "",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "",
+      "addressLocality": "",
+      "postalCode": "",
+      "addressCountry": ""
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 0,
+      "longitude": 0
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
+      "opens": "09:00",
+      "closes": "18:00"
+    },
+    "sameAs": [
+      "https://x.com/SahilSangwann",
+      "https://x.com/Asifalishahh"
+    ]
+  }
+  </script>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg: #023E35;
-      --fg: #ffffff;
-      --gray: #d1d5db;
-      --muted: #9ca3af;
-      --card: rgba(255,255,255,0.06);
-      --border: rgba(255,255,255,0.12);
+      /* YOUR REQUESTED PALETTE */
+      --bg: #424B54;           /* Slate Grey Background */
+      --text-main: #FFFFFF;    /* White Text */
+      --accent: #32936F;       /* Green Accent */
+      --highlight: #CFD11A;    /* Lime Highlight */
+      
+      --surface: rgba(255, 255, 255, 0.05);
+      --surface-hover: rgba(255, 255, 255, 0.08);
+      --border: rgba(255, 255, 255, 0.12);
+      --border-hover: rgba(207, 209, 26, 0.5); 
+      
+      --glass: rgba(66, 75, 84, 0.8);
+      --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
+    html { scroll-behavior: smooth; }
+
     body {
       font-family: 'Inter', sans-serif;
-      background: var(--bg);
-      color: var(--fg);
+      background-color: var(--bg);
+      background-image: 
+        radial-gradient(circle at 50% 0%, rgba(207, 209, 26, 0.12) 0%, transparent 40%),
+        linear-gradient(to bottom, transparent, var(--bg) 90%);
+      color: var(--text-main);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+    
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background-image: 
+        linear-gradient(var(--border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border) 1px, transparent 1px);
+      background-size: 80px 80px;
+      opacity: 0.2;
+      pointer-events: none;
+      z-index: -1;
+      mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
     }
 
-    a { color: inherit; text-decoration: none; }
+    h1, h2, h3, .brand-font { 
+      font-family: 'Inter', sans-serif; 
+      letter-spacing: -0.03em;
+    }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .reveal { opacity: 0; transform: translateY(20px); transition: var(--transition); }
+    .reveal.active { opacity: 1; transform: translateY(0); }
+    
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 12px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text-main);
+      margin-bottom: 24px;
+      backdrop-filter: blur(4px);
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    }
+    
+    .badge span { 
+      color: var(--highlight); 
+      margin-right: 8px; 
+      font-weight: 600;
+      text-shadow: 0 0 8px var(--highlight);
+    }
 
     header {
       position: fixed;
       top: 0; left: 0; right: 0;
-      z-index: 100;
-      padding: 28px 8vw;
-      display: flex;
-      align-items: center;
-      background: rgba(2,62,53,0.65);
-      backdrop-filter: blur(14px);
+      z-index: 1000;
+      padding: 18px 0;
+      border-bottom: 1px solid transparent;
+      transition: var(--transition);
+    }
+
+    header.scrolled {
+      background: var(--glass);
+      backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border);
     }
 
-    header img {
-      height: 30px;
-      width: auto;
-      display: block;
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
-    section { padding: 120px 8vw; }
+    .logo {
+      height: 24px;
+      width: auto;
+      filter: brightness(0) invert(1);
+      opacity: 0.9;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    .nav-links a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover { color: var(--highlight); }
 
     .hero {
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      gap: 32px;
-      padding-top: 180px;
+      align-items: center;
+      text-align: center;
+      padding-top: 80px;
+      position: relative;
+    }
+    
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px; height: 400px;
+      background: radial-gradient(circle, rgba(207, 209, 26, 0.15) 0%, transparent 70%);
+      filter: blur(60px);
+      z-index: -1;
+      pointer-events: none;
     }
 
-    h1 {
-      font-size: clamp(42px, 6vw, 88px);
+    .hero-content { max-width: 800px; }
+
+    .hero h1 {
+      font-size: clamp(48px, 6vw, 80px);
+      line-height: 1.1;
       font-weight: 600;
-      max-width: 900px;
+      margin-bottom: 24px;
+      background: linear-gradient(to bottom right, #fff 40%, #ddd 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
-    .sub {
+    .hero p {
+      font-size: clamp(18px, 2vw, 20px);
+      color: rgba(255,255,255,0.8);
+      max-width: 540px;
+      margin: 0 auto 40px;
+      line-height: 1.6;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 12px 28px;
+      background: var(--accent);
+      color: #ffffff;
+      border-radius: 99px;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 14px;
+      transition: var(--transition);
+      border: 1px solid transparent;
+    }
+
+    .btn:hover {
+      background: #3ba981;
+      transform: translateY(-1px);
+      box-shadow: 0 0 20px rgba(50, 147, 111, 0.3);
+    }
+    
+    .btn.secondary {
+      background: transparent;
+      color: var(--text-main);
+      border: 1px solid var(--border);
+      margin-left: 12px;
+    }
+    
+    .btn.secondary:hover {
+      border-color: var(--highlight);
+      background: rgba(255,255,255,0.05);
+      color: var(--highlight);
+    }
+
+    section { padding: 140px 0; border-top: 1px solid transparent; }
+
+    .section-head {
+      margin-bottom: 60px;
+      max-width: 600px;
+      border-left: 2px solid var(--highlight);
+      padding-left: 20px;
+    }
+
+    .section-head h2 {
+      font-size: clamp(32px, 4vw, 42px);
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+
+    .section-head p {
+      color: rgba(255,255,255,0.6);
+      font-size: 16px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+    }
+
+    .service-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%);
+      border: 1px solid var(--border);
+      padding: 32px;
+      border-radius: 12px;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card:hover {
+      border-color: var(--highlight);
+      transform: translateY(-2px);
+      background: rgba(255,255,255,0.06);
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--highlight), transparent);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    
+    .service-card:hover::before { opacity: 1; }
+
+    .service-icon {
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--highlight); 
+    }
+
+    .service-card h3 {
       font-size: 18px;
-      max-width: 640px;
-      color: var(--gray);
-    }
-
-    .cta {
-      margin-top: 24px;
-      display: inline-block;
-      padding: 14px 34px;
-      border: 1px solid var(--gray);
-      border-radius: 50px;
-      font-size: 13px;
-      letter-spacing: 0.14em;
-      transition: all 0.3s ease;
-    }
-
-    .cta:hover { background: var(--fg); color: var(--bg); }
-
-    .section-title {
-      font-size: 46px;
-      margin-bottom: 56px;
+      margin-bottom: 12px;
       font-weight: 500;
     }
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 32px;
+    .service-card p {
+      color: rgba(255,255,255,0.7);
+      font-size: 14px;
+      line-height: 1.6;
     }
 
-    .card {
-      background: var(--card);
-      padding: 40px;
-      border-radius: 24px;
-      border: 1px solid var(--border);
-    }
-
-    .card h3 { font-size: 22px; margin-bottom: 16px; }
-    .card p { color: var(--gray); font-size: 15px; }
-
-    /* Portfolio */
     .portfolio-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 40px;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 24px;
     }
 
-    .portfolio-item {
-      border-radius: 24px;
+    .work-item {
+      grid-column: span 6;
+      border-radius: 16px;
       overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      background: rgba(0,0,0,0.2);
       border: 1px solid var(--border);
-      background: #0b3f37;
+      transition: var(--transition);
+    }
+    
+    .work-item:hover {
+      border-color: var(--highlight);
+      box-shadow: 0 0 30px rgba(0,0,0,0.3);
     }
 
-    .portfolio-item img {
+    .work-item.large { grid-column: span 12; }
+
+    .work-img-wrap {
+      aspect-ratio: 16/9;
+      overflow: hidden;
+      background: #333;
+      position: relative;
+    }
+    
+    .work-img-wrap::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.1);
+      transition: opacity 0.3s;
+    }
+    
+    .work-item:hover .work-img-wrap::after { opacity: 0; }
+
+    .work-img-wrap img {
       width: 100%;
-      height: 220px;
+      height: 100%;
       object-fit: cover;
-      display: block;
+      transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
 
-    .portfolio-content {
-      padding: 28px;
+    .work-item:hover img { 
+      transform: scale(1.03); 
     }
 
-    .portfolio-content h3 {
-      font-size: 20px;
-      margin-bottom: 8px;
+    .work-info {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 32px;
+      background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+      z-index: 2;
     }
 
-    .portfolio-content p {
-      font-size: 14px;
-      color: var(--muted);
+    .work-info h3 { font-size: 20px; margin-bottom: 4px; color: #fff; }
+    .work-info p { font-size: 13px; color: var(--highlight); font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; }
+
+    .contact-section {
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .contact-section::after {
+      content: '';
+      position: absolute;
+      bottom: -100px; left: 50%;
+      transform: translateX(-50%);
+      width: 600px; height: 300px;
+      background: radial-gradient(circle, rgba(207, 209, 26, 0.1) 0%, transparent 70%);
+      filter: blur(80px);
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .contact-banner h2 {
+      font-size: clamp(32px, 5vw, 56px);
+      margin-bottom: 32px;
+      color: #fff;
     }
 
     footer {
-      padding: 80px 8vw 40px;
+      padding: 60px 0 40px;
       border-top: 1px solid var(--border);
-      color: var(--gray);
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 40px;
+      margin-bottom: 60px;
+    }
+
+    .footer-brand h3 { 
+      margin-bottom: 12px; 
+      font-size: 18px; 
+      color: var(--text-main);
+    }
+    
+    .footer-brand p { 
+      color: rgba(255,255,255,0.4); 
+      max-width: 300px; 
       font-size: 14px;
     }
 
-    footer a { margin-right: 24px; }
+    .social-links { display: flex; gap: 24px; }
+    .social-links a {
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      font-size: 13px;
+      transition: color 0.3s;
+    }
+    .social-links a:hover { color: var(--highlight); }
+
+    .copy {
+      color: rgba(255,255,255,0.3);
+      font-size: 12px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      padding-top: 24px;
+    }
+
+    @media (max-width: 768px) {
+      .work-item { grid-column: span 12; }
+      .nav-links { display: none; }
+      section { padding: 80px 0; }
+      .hero { padding-top: 120px; }
+    }
   </style>
 </head>
 <body>
 
-<header>
-  <a href="#" aria-label="Enwento Home" style="display:flex;align-items:center;">
-    <img src="logovector.svg" alt="Enwento logo" style="height:34px;width:auto;display:block;" />
-  </a>
+<header id="header">
+  <div class="container nav-inner">
+    <a href="#" aria-label="Enwento Studio Home">
+      <img src="logovector.svg" alt="Enwento Studio logo" class="logo" />
+    </a>
+    <nav class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#work">Selected Work</a>
+      <a href="mailto:sahilsangwan1509@gmail.com">Contact</a>
+    </nav>
+  </div>
 </header>
 
-<section class="hero">
-  <h1>We design brands that feel inevitable.</h1>
-  <p class="sub">
-    Enwento is a creative branding and media studio building refined visual identities, digital experiences, and content systems for modern brands.
-  </p>
-  <a href="mailto:sahilsangwan1509@gmail.com" class="cta">START A PROJECT</a>
-</section>
-
-<section>
-  <h2 class="section-title">Our Services</h2>
-  <div class="grid">
-    <div class="card">
-      <h3>Brand Identity & Strategy</h3>
-      <p>Logos, typography, color systems, and brand guidelines rooted in strategy and long-term scalability.</p>
-    </div>
-    <div class="card">
-      <h3>Graphic Design</h3>
-      <p>High-impact visuals for social media, brochures, marketing campaigns, and digital assets.</p>
-    </div>
-    <div class="card">
-      <h3>Web Design & Development</h3>
-      <p>Modern, SEO-optimized websites built for performance, clarity, and conversions.</p>
-    </div>
-    <div class="card">
-      <h3>Media & Content</h3>
-      <p>Short-form videos, reels, motion graphics, and branded content engineered for engagement.</p>
-    </div>
-  </div>
-</section>
-
-<section>
-  <h2 class="section-title">Selected Work</h2>
-  <div class="portfolio-grid">
-
-    <div class="portfolio-item">
-      <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f" alt="Brand identity design" />
-      <div class="portfolio-content">
-        <h3>Brand Identity System</h3>
-        <p>Complete visual identity designed for a modern digital-first brand.</p>
+<main>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content reveal">
+        <div class="badge">
+          <span>Enwento</span> Studio &mdash; 2026
+        </div>
+        <h1>Visual authority <br>for modern brands.</h1>
+        <p>Enwento is a refined creative house crafting distinctive visual identities, digital ecosystems, and high-impact content for the next generation of brands.</p>
+        <div class="hero-actions">
+          <a href="mailto:sahilsangwan1509@gmail.com" class="btn">Start a Conversation</a>
+          <a href="#work" class="btn secondary">View Work</a>
+        </div>
       </div>
     </div>
+  </section>
 
-    <div class="portfolio-item">
-      <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085" alt="Website design" />
-      <div class="portfolio-content">
-        <h3>Website Design</h3>
-        <p>Minimal, conversion-focused website concept with clean UI and UX.</p>
+  <!-- Services Section -->
+  <section id="services">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2>Strategic Craft</h2>
+        <p>Merging artistic intuition with technical precision to build brands that don't just exist—they lead.</p>
+      </div>
+      
+      <div class="services-grid">
+        <article class="service-card reveal">
+          <div class="service-icon">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          </div>
+          <h3>Brand Identity</h3>
+          <p>Architecting complete visual systems including strategy, logos, typography, and scalable guidelines.</p>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="service-icon">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 11a9 9 0 018-8v16a9 9 0 01-8-8zM12 3a9 9 0 018 8 9 9 0 01-8 8"/></svg>
+          </div>
+          <h3>Web Experience</h3>
+          <p>High-performance, minimal, and conversion-focused digital interfaces built with modern technology.</p>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="service-icon">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M23 7l-7 5 7 5V7zM1 5h11a2 2 0 012 2v10a2 2 0 01-2 2H1a2 2 0 01-2-2V7a2 2 0 012-2z"/></svg>
+          </div>
+          <h3>Motion & Media</h3>
+          <p>Short-form cinematic content, motion graphics, and reels engineered for high digital engagement.</p>
+        </article>
       </div>
     </div>
+  </section>
 
-    <div class="portfolio-item">
-      <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7" alt="Social media design" />
-      <div class="portfolio-content">
-        <h3>Social Media Graphics</h3>
-        <p>High-contrast Instagram post and campaign design system.</p>
+  <!-- Work Section -->
+  <section id="work">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2>Selected Artifacts</h2>
+        <p>A glimpse into our recent collaborations and creative explorations.</p>
+      </div>
+
+      <div class="portfolio-grid">
+        <article class="work-item large reveal">
+          <div class="work-img-wrap">
+            <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=1200&q=80" alt="Tech Brand Identity Design Artifact" />
+          </div>
+          <div class="work-info">
+            <p>Identity Design</p>
+            <h3>Lumina Systems</h3>
+          </div>
+        </article>
+
+        <article class="work-item reveal">
+          <div class="work-img-wrap">
+            <img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?auto=format&fit=crop&w=800&q=80" alt="UI UX Digital Design Experience Artifact" />
+          </div>
+          <div class="work-info">
+            <p>UI / UX Experience</p>
+            <h3>Nexa Interface</h3>
+          </div>
+        </article>
+
+        <article class="work-item reveal">
+          <div class="work-img-wrap">
+            <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80" alt="Motion Graphics and Video Media Artifact" />
+          </div>
+          <div class="work-info">
+            <p>Motion Graphics</p>
+            <h3>Kinetic Flow</h3>
+          </div>
+        </article>
       </div>
     </div>
+  </section>
 
-  </div>
-</section>
+  <!-- CTA Section -->
+  <section class="contact-section">
+    <div class="container">
+      <div class="contact-banner reveal">
+        <h2>Ready to build something <br>inevitable?</h2>
+        <a href="mailto:sahilsangwan1509@gmail.com" class="btn">Get in Touch</a>
+      </div>
+    </div>
+  </section>
+</main>
 
 <footer>
-  <div>
-    <a href="https://x.com/SahilSangwann" target="_blank">X / Sahil Sangwann</a>
-    <a href="https://x.com/Asifalishahh" target="_blank">X / ASIF_ALI</a>
-    <a href="mailto:sahilsangwan1509@gmail.com">Email</a>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <h3>Enwento Studio</h3>
+        <p>Premium branding and digital craft for forward-thinking organizations.</p>
+      </div>
+      <div class="social-links">
+        <a href="https://x.com/SahilSangwann" target="_blank" rel="noopener">Twitter / Sahil</a>
+        <a href="https://x.com/Asifalishahh" target="_blank" rel="noopener">Twitter / Asif</a>
+        <a href="mailto:sahilsangwan1509@gmail.com">Email Us</a>
+      </div>
+    </div>
+    <div class="copy">
+      &copy; 2026 Enwento Studio. All rights reserved. Crafted for excellence.
+    </div>
   </div>
-  <p style="margin-top:24px;">© 2026 Enwento. All rights reserved.</p>
 </footer>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const header = document.getElementById('header');
+    if (window.scrollY > 20) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  });
+
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: "0px 0px -50px 0px"
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
 
 </body>
 </html>
