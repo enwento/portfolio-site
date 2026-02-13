@@ -1261,38 +1261,116 @@
     });
 
     // Knowledge Base (Client-side AI Simulation)
+    // Ordered by specificity to prevent generic matches from hijacking specific queries
     const knowledgeBase = [
+      // 1. Capabilities & Experience
+      {
+        keywords: ['portfolio', 'example', 'work', 'case study', 'case studies', 'industry', 'show me'],
+        response: "Our portfolio showcases a range of bespoke digital experiences. We have worked across various industries including luxury, tech, and retail. You can view our 'Selected Work' section on this page, or contact us for industry-specific examples."
+      },
+      {
+        keywords: ['custom', 'template', 'pre-made', 'scratch', 'theme'],
+        response: "We exclusively build custom solutions tailored to your brand's specific DNA and performance needs. We do not use pre-made templates, ensuring your site is unique, fast, and SEO-optimized."
+      },
+      {
+        keywords: ['different', 'unique', 'apart', 'why enwento', 'competitor'],
+        response: "What sets Enwento apart is our fusion of visceral high-end aesthetics with rigorous strategic function. We don't just make things look good; we engineer them to perform and convert."
+      },
+      {
+        keywords: ['in-house', 'outsource', 'team', 'freelance'],
+        response: "All our work is crafted in-house by our dedicated team of designers, developers, and strategists. This ensures consistent quality and seamless communication throughout your project."
+      },
+
+      // 2. Process & Strategy
+      {
+        keywords: ['seo', 'search engine', 'ranking', 'google'],
+        response: "SEO is not an afterthought for us; it's integrated into the architecture of the site from day one. We build with semantic HTML, optimized assets, and technical SEO best practices to ensure high visibility."
+      },
+      {
+        keywords: ['discovery', 'research', 'audit', 'understand'],
+        response: "Our process begins with a deep Discovery phase. We audit your current presence, analyze competitors, and define your user personas to ensure the design strategy is data-backed."
+      },
+      {
+        keywords: ['responsive', 'mobile', 'phone', 'tablet', 'accessibility', 'aoda', 'ada'],
+        response: "Absolutely. We design with a mobile-first approach. All our websites are fully responsive and we adhere to modern accessibility standards (WCAG) to ensure your site is usable by everyone."
+      },
+      {
+        keywords: ['manager', 'contact point', 'who', 'project manager'],
+        response: "You will have a dedicated Project Manager as your primary point of contact. They ensure clear communication, timeline management, and that your feedback is perfectly implemented."
+      },
+      {
+        keywords: ['involved', 'involvement', 'feedback'],
+        response: "We believe in collaborative partnership. We will need your input at key milestones (Strategy, Design Concepts, Launch), but we handle the heavy lifting so you can focus on your business."
+      },
+
+      // 3. Content & Design
+      {
+        keywords: ['copy', 'copywriting', 'content', 'text', 'writing', 'image', 'photo', 'sourcing'],
+        response: "Yes, we can assist with content strategy and copywriting. We also handle art direction and image sourcing to ensure the visuals perfectly match the brand narrative."
+      },
+      {
+        keywords: ['cms', 'backend', 'manage', 'update', 'wordpress', 'sanity', 'shopify'],
+        response: "We build on modern, user-friendly CMS platforms like Sanity, Strapi, or WordPress, depending on your needs. You will have full control to update text and images easily after launch."
+      },
+      {
+        keywords: ['dislike', 'don\'t like', 'change', 'revision', 'round'],
+        response: "Client satisfaction is paramount. Our process includes iterative feedback rounds. If the initial concept isn't hitting the mark, we revisit the strategy to align closer with your vision before moving forward."
+      },
+
+      // 4. Ownership & Support
+      {
+        keywords: ['own', 'ownership', 'rights', 'intellectual property', 'code'],
+        response: "You own everything. Once the final payment is settled, all code, design assets, and domains are 100% your property."
+      },
+      {
+        keywords: ['support', 'maintenance', 'update', 'help', 'future'],
+        response: "We offer tailored post-launch maintenance packages. These cover security updates, plugin management, and small content tweaks to keep your site secure and fresh."
+      },
+      {
+        keywords: ['security', 'hack', 'patch', 'safe'],
+        response: "Security is a priority. We use secure hosting environments, SSL certificates, and regular patching protocols to protect your digital assets from vulnerabilities."
+      },
+
+      // 5. Budget & Timeline
+      {
+        keywords: ['cost', 'price', 'budget', 'quote', 'money', 'fee', 'rate'],
+        response: "Every project is unique. To give you an accurate estimate, we prefer to discuss your specific requirements. Please email sahilsangwan1509@gmail.com for a curated proposal."
+      },
+      {
+        keywords: ['timeline', 'how long', 'weeks', 'months', 'deadline'],
+        response: "Typical timelines range from 4-8 weeks for a standard website, depending on complexity. We provide a detailed schedule at the start of the project."
+      },
+      {
+        keywords: ['roi', 'result', 'performance', 'metric'],
+        response: "We focus on measurable results. Ask us about our case studies where we've helped clients increase conversion rates and brand engagement significantly."
+      },
+
+      // 6. Marketing
+      {
+        keywords: ['ads', 'advertising', 'paid', 'ppc', 'google ads', 'facebook ads'],
+        response: "Yes, our strategic marketing team manages paid advertising campaigns across Google, Meta, and LinkedIn to drive targeted traffic and conversions."
+      },
+      {
+        keywords: ['marketing', 'strategy', 'growth', 'social'],
+        response: "We offer comprehensive marketing strategies including SEO, content planning, and social media growth to amplify your brand presence."
+      },
+      {
+        keywords: ['graphic', 'social media design', 'print', 'collateral'],
+        response: "We extend your brand identity beyond the web. We can handle graphic design for social media assets, pitch decks, and print materials."
+      },
+      
+      // General
       {
         keywords: ['hello', 'hi', 'hey', 'start'],
-        response: "Hello! Welcome to Enwento Studio. I can assist you with information about our Branding, Web Design, Marketing Strategy services, or guide you on how to start a project with us."
-      },
-      {
-        keywords: ['services', 'offer', 'do', 'work'],
-        response: "We are a full-service agency. Our core expertise lies in: 1. Brand Identity & Strategy. 2. Digital Experience (Web & App). 3. Content & Motion Graphics. 4. Strategic Marketing. How can we elevate your business today?"
-      },
-      {
-        keywords: ['brand', 'logo', 'identity', 'design'],
-        response: "Our Brand Identity service creates scalable visual systems. We handle everything from logo design and typography to comprehensive brand guidelines that ensure consistency."
-      },
-      {
-        keywords: ['web', 'site', 'digital', 'app'],
-        response: "We engineer immersive websites using modern tech (WebGL, React) that are optimized for both performance and conversion. We build digital dominance."
-      },
-      {
-        keywords: ['marketing', 'strategy', 'growth', 'social', 'campaign', 'seo'],
-        response: "Our strategic marketing services are designed to amplify your brand's voice. We offer comprehensive digital marketing strategies, SEO optimization, social media growth planning, and campaign execution to ensure your brand reaches the right audience effectively."
-      },
-      {
-        keywords: ['price', 'cost', 'quote', 'money', 'budget', 'rate', 'fee'],
-        response: "Every project at Enwento is unique. We believe in creating completely customized and curated plans tailored specifically to your needs. Please contact us directly at sahilsangwan1509@gmail.com for a personalized quote based on your specific requirements."
-      },
-      {
-        keywords: ['contact', 'email', 'hire', 'phone', 'reach', 'talk'],
-        response: "Let's build something extraordinary. You can reach our team directly at sahilsangwan1509@gmail.com for inquiries, collaborations, or to discuss a curated plan for your brand."
+        response: "Hello! Welcome to Enwento Studio. Ask me about our Portfolio, Process, Pricing, or Marketing services."
       },
       {
         keywords: ['sahil', 'asif', 'founder'],
         response: "Enwento was founded by Sahil Sangwan and Asif Ali Shah to bridge the gap between aesthetic beauty and functional digital strategy."
+      },
+      {
+        keywords: ['contact', 'email', 'hire', 'reach'],
+        response: "Ready to start? Contact us at sahilsangwan1509@gmail.com."
       }
     ];
 
