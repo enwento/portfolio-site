@@ -1234,7 +1234,9 @@
       lastScroll = currentScroll;
     });
 
-    // --- AI Chatbot Logic ---
+    // ============================================================
+    // ENHANCED AI CHATBOT LOGIC WITH COMPREHENSIVE KNOWLEDGE BASE
+    // ============================================================
     const chatToggle = document.getElementById('chatToggle');
     const chatWindow = document.getElementById('chatWindow');
     const chatIcon = document.getElementById('chatIcon');
@@ -1260,130 +1262,475 @@
       }
     });
 
-    // Knowledge Base (Client-side AI Simulation)
-    // Ordered by specificity to prevent generic matches from hijacking specific queries
+    // ============================================================
+    // COMPREHENSIVE KNOWLEDGE BASE
+    // ============================================================
     const knowledgeBase = [
-      // 1. Capabilities & Experience
+      // ===== WEBSITE DEVELOPMENT - ADVANCED & SCENARIO-BASED =====
+      {
+        keywords: ['migrate', 'migration', 'wordpress to shopify', 'platform change', 'switch platform'],
+        response: "Yes, we specialize in seamless platform migrations including WordPress to Shopify. We handle data transfer, URL redirects, design adaptation, and ensure zero downtime. Your SEO rankings and user experience remain intact throughout the transition."
+      },
+      {
+        keywords: ['traffic good', 'conversions low', 'visitors not converting', 'high bounce', 'conversion rate'],
+        response: "This is a conversion optimization challenge. We conduct comprehensive CRO audits including heatmap analysis, user session recordings, A/B testing, funnel analysis, and strategic UX improvements. We identify friction points and implement data-driven solutions to boost your conversion rates by 30-200%."
+      },
+      {
+        keywords: ['redesign without affecting seo', 'redesign seo', 'maintain rankings', 'keep seo'],
+        response: "Absolutely. We follow SEO-safe redesign protocols: maintaining URL structures, implementing 301 redirects where needed, preserving meta data, optimizing Core Web Vitals, and conducting comprehensive pre/post-launch audits. Your search rankings stay protected while your design gets elevated."
+      },
+      {
+        keywords: ['custom web applications', 'web app', 'saas', 'platform development', 'custom software'],
+        response: "Yes, we build custom web applications and SaaS platforms from scratch. Using modern frameworks (React, Next.js, Node.js), we create scalable, secure applications tailored to your unique business logic. From dashboards to complex multi-tenant systems, we engineer solutions that grow with you."
+      },
+      {
+        keywords: ['crm integration', 'integrate crm', 'salesforce', 'hubspot integration'],
+        response: "We integrate leading CRM systems (HubSpot, Salesforce, Zoho, Pipedrive) directly into your website. This enables automated lead capture, contact syncing, behavior tracking, and seamless sales workflows. Your marketing and sales teams get real-time data synchronization."
+      },
+      {
+        keywords: ['multilingual', 'multiple languages', 'translation', 'international'],
+        response: "We build multilingual websites with proper hreflang implementation, RTL support for languages like Arabic, and content management systems that make translations easy. We ensure SEO compliance for each language version and cultural adaptation of design elements."
+      },
+      {
+        keywords: ['membership', 'subscription', 'members only', 'gated content', 'user accounts'],
+        response: "We develop membership and subscription-based platforms with secure authentication, tiered access levels, recurring payment integration (Stripe, PayPal), content gating, and member dashboards. Perfect for online courses, premium content, and SaaS businesses."
+      },
+      {
+        keywords: ['website security', 'security measures', 'hack protection', 'ssl', 'firewall'],
+        response: "Security is paramount. We implement SSL certificates, Web Application Firewalls (WAF), DDoS protection, regular security patches, secure authentication protocols, encrypted data transmission, and vulnerability scanning. We follow OWASP security standards to keep your site fortress-level secure."
+      },
+      {
+        keywords: ['core web vitals', 'page speed', 'lcp', 'fid', 'cls', 'performance optimization'],
+        response: "Yes, we optimize for Google's Core Web Vitals (LCP, FID, CLS). This includes image optimization, lazy loading, code splitting, CDN implementation, server-side rendering, and database query optimization. We aim for 90+ PageSpeed scores and sub-2-second load times."
+      },
+      {
+        keywords: ['booking system', 'appointment', 'scheduling', 'calendar integration', 'reservations'],
+        response: "We integrate robust booking systems (Calendly, Acuity, custom solutions) with calendar sync, automated confirmations, reminder emails, payment processing, and timezone handling. Perfect for service businesses, consultants, and appointment-based operations."
+      },
+      {
+        keywords: ['scalable', 'scalability', 'future expansion', 'growth', 'scale up'],
+        response: "All our websites are architected for scalability. We use cloud infrastructure (AWS, Google Cloud), microservices where appropriate, CDN distribution, and modular code structures. Your site can handle 10x traffic growth without performance degradation."
+      },
+      {
+        keywords: ['headless cms', 'headless', 'decoupled', 'jamstack', 'contentful', 'strapi'],
+        response: "We specialize in headless CMS development using platforms like Contentful, Strapi, Sanity, or custom APIs. This enables content reusability across web, mobile, and IoT, superior performance, enhanced security, and developer flexibility."
+      },
+      {
+        keywords: ['sales funnel', 'funnel website', 'landing page funnel', 'conversion funnel'],
+        response: "We build high-converting sales funnel websites with strategic page flows, compelling CTAs, lead magnets, exit-intent popups, urgency triggers, and seamless payment integration. Every element is optimized to guide visitors from awareness to purchase."
+      },
+      {
+        keywords: ['static vs dynamic', 'difference static dynamic', 'static website', 'dynamic website'],
+        response: "Static websites (HTML/CSS/JS) are faster and more secure but require developer changes for updates. Dynamic websites (database-driven) allow non-technical content updates via CMS but need more resources. We recommend based on your content frequency and technical comfort level."
+      },
+      {
+        keywords: ['fix technical errors', 'fix bugs', 'website broken', 'errors on site', 'troubleshoot'],
+        response: "We provide emergency technical support and systematic debugging. Whether it's broken links, JavaScript errors, database issues, or hosting problems—we diagnose and resolve quickly. We also conduct full technical audits to prevent future issues."
+      },
+
+      // ===== ECOMMERCE SPECIFIC QUERIES =====
+      {
+        keywords: ['abandoned cart', 'cart recovery', 'cart abandonment', 'recover sales'],
+        response: "We implement automated abandoned cart recovery with personalized email sequences, exit-intent popups offering discounts, SMS reminders, and retargeting ads. Typically recovers 15-30% of abandoned carts, significantly boosting your revenue."
+      },
+      {
+        keywords: ['payment gateways', 'multiple payments', 'stripe', 'paypal', 'payment options'],
+        response: "We integrate all major payment gateways: Stripe, PayPal, Square, Razorpay, and regional options. We also set up buy-now-pay-later services (Klarna, Afterpay) and cryptocurrency payments if needed. More payment options = higher conversion rates."
+      },
+      {
+        keywords: ['optimize shopify', 'shopify conversion', 'improve shopify', 'shopify cro'],
+        response: "We optimize Shopify stores through speed enhancements, mobile UX improvements, checkout optimization, product page redesigns, trust signals, urgency tactics, and strategic app integration. Our clients typically see 40-150% conversion increases."
+      },
+      {
+        keywords: ['product page optimization', 'product page', 'pdp optimization'],
+        response: "We optimize product pages with high-quality images, 360° views, detailed descriptions, social proof (reviews/ratings), size guides, video demonstrations, strategic cross-sells, and mobile-optimized layouts. Every element is conversion-focused."
+      },
+      {
+        keywords: ['inventory management', 'stock management', 'inventory tools', 'sku tracking'],
+        response: "We integrate inventory management systems (TradeGecko, Cin7, custom solutions) with real-time stock tracking, automated reorder alerts, multi-location inventory, SKU management, and synchronization across all sales channels."
+      },
+      {
+        keywords: ['ecommerce seo', 'product seo', 'online store seo', 'shop seo'],
+        response: "Our eCommerce SEO includes product page optimization, category structure, schema markup for rich snippets, technical SEO for faceted navigation, content strategy, and link building. We help you rank for high-intent product keywords that drive sales."
+      },
+      {
+        keywords: ['upselling', 'cross-selling', 'increase order value', 'aov', 'frequently bought'],
+        response: "We implement intelligent upsell and cross-sell features: 'frequently bought together' bundles, post-purchase upsells, volume discounts, product recommendations based on browsing history, and strategic placement throughout the customer journey."
+      },
+      {
+        keywords: ['checkout conversion', 'checkout optimization', 'reduce cart abandonment', 'checkout rate'],
+        response: "We optimize checkout with one-page layouts, guest checkout options, progress indicators, multiple payment methods, trust badges, saved payment info, address autocomplete, and clear shipping/tax calculations. Typical improvements: 20-40% higher completion rates."
+      },
+      {
+        keywords: ['facebook shopping', 'google shopping', 'product feeds', 'shopping ads'],
+        response: "We set up and optimize product feeds for Facebook Shop, Instagram Shopping, Google Shopping, and Pinterest Shopping. This includes automated feed sync, product categorization, and ongoing optimization for maximum visibility and sales."
+      },
+      {
+        keywords: ['migrate products', 'product migration', 'move products', 'transfer store'],
+        response: "We handle complete product migrations including all data: product names, descriptions, images, variants, prices, inventory counts, and SEO metadata. We use specialized migration tools to ensure accuracy and minimal downtime."
+      },
+
+      // ===== SOCIAL MEDIA - GROWTH & PERFORMANCE =====
+      {
+        keywords: ['increase engagement', 'boost engagement', 'social engagement', 'more likes comments'],
+        response: "We increase engagement through strategic content calendars, optimal posting times, community interaction, trending content creation, polls/questions, user-generated content campaigns, and authentic storytelling that resonates with your audience."
+      },
+      {
+        keywords: ['audit social media', 'social media audit', 'review my social', 'analyze social'],
+        response: "Our comprehensive social media audit analyzes: content performance, follower growth patterns, engagement rates, competitor benchmarking, platform-specific opportunities, and actionable strategic recommendations to dramatically improve your social presence."
+      },
+      {
+        keywords: ['content calendar', 'monthly calendar', 'posting schedule', 'content planning'],
+        response: "We create detailed monthly content calendars aligned with your brand voice, product launches, industry events, and trending topics. Each post is strategically planned with captions, hashtags, and optimal timing for maximum reach and engagement."
+      },
+      {
+        keywords: ['paid and organic', 'ads and organic', 'both paid organic', 'integrated social'],
+        response: "We manage integrated social strategies combining organic content for brand building and community engagement with paid advertising for targeted reach and conversions. This synergistic approach maximizes ROI and sustainable growth."
+      },
+      {
+        keywords: ['track roi', 'social media roi', 'measure social', 'social analytics', 'track results'],
+        response: "We track comprehensive metrics: engagement rates, reach, follower growth, website traffic from social, lead generation, conversion rates, and revenue attribution. You receive monthly reports with clear ROI analysis and strategic insights."
+      },
+      {
+        keywords: ['viral campaign', 'viral marketing', 'go viral', 'trending content'],
+        response: "We create viral-potential campaigns using psychological triggers, trending formats, emotional storytelling, influencer partnerships, user participation mechanics, and strategic seeding across platforms. While virality isn't guaranteed, we maximize your chances through proven frameworks."
+      },
+      {
+        keywords: ['linkedin marketing', 'b2b linkedin', 'linkedin for business', 'professional network'],
+        response: "Our LinkedIn B2B marketing includes thought leadership content, employee advocacy programs, targeted connection strategies, LinkedIn Ads, company page optimization, and lead generation tactics specifically designed for professional audiences and decision-makers."
+      },
+      {
+        keywords: ['community management', 'message replies', 'respond to comments', 'social monitoring'],
+        response: "We provide full community management: responding to comments/messages within hours, moderating discussions, addressing customer inquiries, fostering positive interactions, and building genuine relationships with your audience across all platforms."
+      },
+      {
+        keywords: ['negative comments', 'pr crisis', 'handle criticism', 'reputation management', 'bad reviews'],
+        response: "We have crisis management protocols: rapid response strategies, professional communication templates, issue escalation procedures, sentiment monitoring, and proactive reputation management to turn negative situations into opportunities for demonstrating excellent customer care."
+      },
+      {
+        keywords: ['retargeting ads', 'retargeting social', 'pixel tracking', 'remarket'],
+        response: "We set up sophisticated retargeting campaigns tracking website visitors, cart abandoners, video viewers, and engaged users. We create personalized ad sequences across Facebook, Instagram, LinkedIn, and Twitter to bring warm leads back to convert."
+      },
+
+      // ===== SEO & ORGANIC GROWTH =====
+      {
+        keywords: ['seo audit', 'complete audit', 'technical audit', 'site audit'],
+        response: "Our comprehensive SEO audit covers: technical SEO issues, on-page optimization opportunities, content gaps, backlink profile analysis, competitor research, Core Web Vitals, mobile usability, and a prioritized action plan with expected impact."
+      },
+      {
+        keywords: ['technical seo', 'technical fixes', 'crawl errors', 'indexing issues'],
+        response: "We fix technical SEO issues including crawl errors, broken links, duplicate content, XML sitemap optimization, robots.txt configuration, canonical tags, structured data implementation, and page speed optimization for better search engine understanding."
+      },
+      {
+        keywords: ['voice search', 'optimize voice', 'alexa siri', 'voice assistant'],
+        response: "We optimize for voice search with conversational keywords, featured snippet targeting, FAQ schema markup, natural language content, and mobile optimization. This captures the growing voice search market (40%+ of searches)."
+      },
+      {
+        keywords: ['backlink building', 'backlinks', 'link building', 'get links'],
+        response: "Our white-hat link building includes: digital PR for high-authority media placements, guest posting on relevant sites, broken link building, resource page outreach, HARO responses, and strategic partnerships. We focus on quality over quantity for sustainable rankings."
+      },
+      {
+        keywords: ['keyword research', 'find keywords', 'keyword analysis', 'search terms'],
+        response: "We conduct in-depth keyword research analyzing search volume, competition, user intent, and commercial value. We identify high-opportunity keywords, long-tail variations, and semantic terms that drive qualified traffic and conversions."
+      },
+      {
+        keywords: ['google my business', 'gmb', 'local seo', 'google business profile'],
+        response: "We fully optimize your Google Business Profile: accurate NAP data, compelling descriptions, category selection, photo optimization, review generation strategies, Q&A management, and post updates to dominate local search results."
+      },
+      {
+        keywords: ['content marketing', 'blog content', 'content strategy', 'content creation'],
+        response: "Our content marketing includes strategic blog posts, pillar pages, case studies, guides, and multimedia content aligned with user intent and search behavior. We create content that ranks, engages, and converts visitors into customers."
+      },
+      {
+        keywords: ['google penalty', 'penalty recovery', 'traffic drop', 'deindexed', 'manual action'],
+        response: "We specialize in penalty recovery: identifying the cause (manual action or algorithmic), creating disavow files for toxic backlinks, content quality improvements, reconsideration requests, and strategic recovery plans to restore rankings."
+      },
+      {
+        keywords: ['domain authority', 'increase da', 'authority score', 'site authority'],
+        response: "We improve domain authority through high-quality backlink acquisition, removing toxic links, improving on-page SEO, publishing authoritative content, gaining brand mentions, and building topical authority in your niche."
+      },
+      {
+        keywords: ['seo blog', 'seo content', 'optimized content', 'ranking content'],
+        response: "We create SEO-optimized blog content with strategic keyword placement, compelling headlines, proper heading hierarchy, internal linking, multimedia elements, and comprehensive coverage that satisfies user intent and ranks consistently."
+      },
+
+      // ===== PAID ADVERTISING & FUNNEL STRATEGY =====
+      {
+        keywords: ['ad creatives', 'high converting ads', 'ad design', 'creative design'],
+        response: "We design high-converting ad creatives using attention-grabbing visuals, persuasive copy, clear CTAs, social proof elements, and platform-specific best practices. We A/B test variations to identify winners that deliver maximum ROI."
+      },
+      {
+        keywords: ['youtube ads', 'video ads', 'youtube advertising'],
+        response: "We manage YouTube advertising campaigns including skippable in-stream ads, non-skippable ads, bumper ads, and discovery ads. We handle targeting, creative production, bid optimization, and conversion tracking for maximum video marketing impact."
+      },
+      {
+        keywords: ['complete sales funnel', 'funnel from ads', 'ads to conversion', 'full funnel'],
+        response: "We build complete sales funnels: awareness ads → optimized landing pages → lead magnets → email sequences → conversion pages. Every touchpoint is strategically designed and tested to maximize conversions from your ad spend."
+      },
+      {
+        keywords: ['reduce cost per lead', 'lower cpl', 'cheaper leads', 'decrease lead cost'],
+        response: "We reduce cost per lead through audience refinement, negative keyword optimization, landing page improvements, ad copy testing, bid strategy optimization, and quality score improvements. Typical reductions: 30-60% within 60 days."
+      },
+      {
+        keywords: ['scale ads', 'scale campaigns', 'increase ad spend', 'profitable scaling'],
+        response: "Once campaigns are profitable, we scale strategically through audience expansion, increased budgets, new ad formats, additional platforms, and lookalike audience creation—all while maintaining or improving your cost per acquisition."
+      },
+      {
+        keywords: ['a/b testing', 'split testing', 'test ads', 'ad testing'],
+        response: "We run systematic A/B tests on headlines, images, copy, CTAs, audiences, and landing pages. We use statistical significance to identify winners and continuously optimize for better performance and lower costs."
+      },
+      {
+        keywords: ['conversion tracking', 'google tag manager', 'gtm', 'tracking setup', 'analytics'],
+        response: "We implement comprehensive conversion tracking using Google Tag Manager, Facebook Pixel, and custom event tracking. This gives you complete visibility into user behavior, attribution, and ROI across all marketing channels."
+      },
+      {
+        keywords: ['retarget visitors', 'retargeting', 'pixel retargeting', 'remarketing'],
+        response: "We set up multi-platform retargeting campaigns targeting website visitors, video viewers, and engaged users with personalized ads. We create segmented audiences based on behavior to deliver highly relevant messaging."
+      },
+      {
+        keywords: ['google and meta', 'google and facebook', 'both platforms', 'manage multiple'],
+        response: "We manage integrated campaigns across Google Ads and Meta platforms (Facebook/Instagram). This cross-platform approach maximizes reach, allows strategic budget allocation, and provides comprehensive market coverage."
+      },
+      {
+        keywords: ['performance based', 'performance marketing', 'pay for results', 'roi guarantee'],
+        response: "We offer performance-based packages where fees are tied to results: leads generated, revenue driven, or specific KPI achievements. This aligns our success with yours and demonstrates our confidence in delivering measurable outcomes."
+      },
+
+      // ===== BRANDING & STRATEGY =====
+      {
+        keywords: ['competitor analysis', 'analyze competitors', 'competitive research', 'competitor branding'],
+        response: "Our competitor analysis examines: positioning strategies, visual identity systems, messaging frameworks, content approaches, customer perception, pricing strategies, and market gaps. This intelligence informs differentiated brand positioning."
+      },
+      {
+        keywords: ['rebrand', 'rebranding', 'brand refresh', 'brand overhaul'],
+        response: "We handle complete rebrands: strategic positioning, name development (if needed), visual identity creation, brand guidelines, messaging framework, stakeholder communication plan, and phased rollout strategy. We transform how the market perceives you."
+      },
+      {
+        keywords: ['brand storytelling', 'brand story', 'narrative', 'brand messaging'],
+        response: "We craft compelling brand stories that emotionally connect with audiences. This includes origin stories, mission articulation, value propositions, customer success narratives, and consistent messaging across all touchpoints."
+      },
+      {
+        keywords: ['brand voice', 'tone of voice', 'messaging guidelines', 'communication style'],
+        response: "We define your unique brand voice and messaging guidelines covering: personality traits, tone variations by context, vocabulary do's/don'ts, writing style examples, and platform-specific adaptations for consistent communication."
+      },
+      {
+        keywords: ['position startup', 'startup branding', 'new brand', 'brand positioning'],
+        response: "For startups, we develop strategic positioning that differentiates you from established competitors. This includes: market positioning, unique value proposition, target audience definition, messaging hierarchy, and go-to-market brand strategy."
+      },
+
+      // ===== OBJECTION & DECISION-STAGE =====
+      {
+        keywords: ['why not freelancer', 'agency vs freelancer', 'why agency', 'advantage agency'],
+        response: "Unlike freelancers, we offer: dedicated team with specialized skills, guaranteed availability, project management systems, quality assurance processes, legal protection, scalability for large projects, and long-term strategic partnership. You get enterprise-level results with agency accountability."
+      },
+      {
+        keywords: ['strategies work', 'prove it works', 'guarantee results', 'will it work'],
+        response: "Our strategies are data-driven and proven across industries. While we can't guarantee specific outcomes (no ethical agency does), we show case studies, share past results, provide strategic reasoning, and offer performance metrics tracking. Our track record speaks for itself."
+      },
+      {
+        keywords: ['case studies', 'past results', 'portfolio results', 'show examples', 'proof'],
+        response: "We have extensive case studies across industries showing: 150-300% traffic increases, 40-200% conversion improvements, successful rebrands, and multi-million dollar revenue growth. Email sahilsangwan1509@gmail.com for industry-specific examples relevant to your business."
+      },
+      {
+        keywords: ['not satisfied', 'unhappy', 'refund policy', 'what if disappointed'],
+        response: "We include strategic checkpoints throughout projects where you can provide feedback. We iterate until you're satisfied. While we don't offer refunds for completed work, we're committed to excellence and work collaboratively to ensure you're thrilled with outcomes."
+      },
+      {
+        keywords: ['performance guarantee', 'guarantee', 'promise results', 'assured results'],
+        response: "While specific guarantees vary by project type, we offer performance-based pricing options for ongoing services where appropriate. We're so confident in our work that we align our compensation with your success metrics."
+      },
+
+      // ===== LONG-TERM PARTNERSHIP & RETAINER =====
+      {
+        keywords: ['retainer', 'monthly package', 'ongoing service', 'monthly contract'],
+        response: "Yes, we offer monthly retainer packages including: ongoing SEO, content creation, social media management, ad management, website maintenance, and strategic consulting. Retainers ensure consistent optimization and are more cost-effective than project-based work."
+      },
+      {
+        keywords: ['small project first', 'trial project', 'test project', 'start small'],
+        response: "Absolutely. We recommend starting with a focused pilot project to build trust and demonstrate value. Many of our long-term clients started with a single landing page, logo design, or 30-day ad campaign before expanding into full partnerships."
+      },
+      {
+        keywords: ['account manager', 'dedicated manager', 'point of contact', 'project manager'],
+        response: "Yes, all clients get a dedicated account manager as your single point of contact. They understand your business deeply, coordinate our internal team, ensure timely communication, and proactively identify opportunities for growth."
+      },
+      {
+        keywords: ['strategy meetings', 'how often meet', 'meeting frequency', 'check ins'],
+        response: "We schedule bi-weekly or monthly strategy meetings depending on project scope. These cover: performance reviews, upcoming initiatives, market trends, optimization opportunities, and strategic planning. You also have direct access for urgent matters."
+      },
+      {
+        keywords: ['outsourced marketing team', 'full team', 'replace marketing', 'entire marketing'],
+        response: "Yes, many clients use us as their complete outsourced marketing department. We provide: strategic planning, creative execution, analytics, paid media, SEO, content, social media, and reporting—essentially a full marketing team at a fraction of in-house costs."
+      },
+
+      // ===== HIGH-INTENT LEAD CAPTURE =====
+      {
+        keywords: ['custom quote', 'get quote', 'pricing', 'how much', 'cost'],
+        response: "I'd love to provide a custom quote tailored to your specific needs. Please email sahilsangwan1509@gmail.com with details about your project, and we'll prepare a detailed proposal with transparent pricing within 24 hours."
+      },
+      {
+        keywords: ['start working', 'how soon', 'when can we start', 'timeline to begin'],
+        response: "We can typically begin within 1-2 weeks after contract signing. For urgent projects, we can fast-track onboarding. The exact timeline depends on project scope and current capacity. Let's schedule a call to discuss: sahilsangwan1509@gmail.com"
+      },
+      {
+        keywords: ['information needed', 'what do you need', 'requirements', 'to get started'],
+        response: "To begin, we need: business objectives, target audience details, current marketing assets, competitor information, budget range, and timeline expectations. Don't worry if you don't have everything—we'll guide you through our discovery process."
+      },
+      {
+        keywords: ['send proposal', 'proposal', 'project plan', 'detailed plan'],
+        response: "Absolutely! Email your project details to sahilsangwan1509@gmail.com and we'll send a comprehensive proposal including: project scope, timeline, deliverables, investment, team structure, and our strategic approach. Proposals typically delivered within 48 hours."
+      },
+      {
+        keywords: ['strategy session', 'free consultation', 'discovery call', 'initial call'],
+        response: "Yes! We offer complimentary 30-minute strategy sessions where we analyze your current situation, identify opportunities, and provide actionable insights—even if you don't become a client. Book yours: sahilsangwan1509@gmail.com"
+      },
+
+      // ===== EXISTING KNOWLEDGE BASE (Enhanced) =====
       {
         keywords: ['portfolio', 'example', 'work', 'case study', 'case studies', 'industry', 'show me'],
-        response: "Our portfolio showcases a range of bespoke digital experiences. We have worked across various industries including luxury, tech, and retail. You can view our 'Selected Work' section on this page, or contact us for industry-specific examples."
+        response: "Our portfolio showcases award-winning digital experiences across luxury, tech, retail, and eCommerce. Featured work includes Adidas Interactive, Prime Hydration, and Red Bull Racing Hub. View the 'Selected Work' section above, or email sahilsangwan1509@gmail.com for industry-specific case studies."
       },
       {
         keywords: ['custom', 'template', 'pre-made', 'scratch', 'theme'],
-        response: "We exclusively build custom solutions tailored to your brand's specific DNA and performance needs. We do not use pre-made templates, ensuring your site is unique, fast, and SEO-optimized."
+        response: "We exclusively build custom solutions tailored to your brand's DNA and performance needs. No templates. Every line of code, every design element is crafted specifically for you—ensuring uniqueness, blazing speed, and perfect SEO optimization."
       },
       {
-        keywords: ['different', 'unique', 'apart', 'why enwento', 'competitor'],
-        response: "What sets Enwento apart is our fusion of visceral high-end aesthetics with rigorous strategic function. We don't just make things look good; we engineer them to perform and convert."
+        keywords: ['different', 'unique', 'apart', 'why enwento', 'competitor', 'why choose'],
+        response: "Enwento fuses visceral high-end aesthetics with rigorous strategic function. We don't just make things beautiful—we engineer them to perform and convert. Our clients experience 150-300% traffic increases and 40-200% conversion improvements. We're strategists, designers, and technologists obsessed with your growth."
       },
       {
         keywords: ['in-house', 'outsource', 'team', 'freelance'],
-        response: "All our work is crafted in-house by our dedicated team of designers, developers, and strategists. This ensures consistent quality and seamless communication throughout your project."
-      },
-
-      // 2. Process & Strategy
-      {
-        keywords: ['seo', 'search engine', 'ranking', 'google'],
-        response: "SEO is not an afterthought for us; it's integrated into the architecture of the site from day one. We build with semantic HTML, optimized assets, and technical SEO best practices to ensure high visibility."
+        response: "Everything is crafted in-house by our dedicated team of senior designers, developers, and strategists. No outsourcing. This ensures consistent excellence, seamless communication, and accountability throughout your project."
       },
       {
-        keywords: ['discovery', 'research', 'audit', 'understand'],
-        response: "Our process begins with a deep Discovery phase. We audit your current presence, analyze competitors, and define your user personas to ensure the design strategy is data-backed."
+        keywords: ['seo', 'search engine', 'ranking', 'google', 'search visibility'],
+        response: "SEO is integrated into the architecture from day one. We build with semantic HTML, optimized assets, technical SEO best practices, Core Web Vitals optimization, and comprehensive on-page SEO to ensure high visibility and organic traffic growth."
       },
       {
-        keywords: ['responsive', 'mobile', 'phone', 'tablet', 'accessibility', 'aoda', 'ada'],
-        response: "Absolutely. We design with a mobile-first approach. All our websites are fully responsive and we adhere to modern accessibility standards (WCAG) to ensure your site is usable by everyone."
+        keywords: ['discovery', 'research', 'audit', 'understand', 'analysis'],
+        response: "We begin with deep Discovery: auditing your current presence, analyzing competitors, defining user personas, and mapping customer journeys. This data-backed foundation ensures every design decision is strategic and results-focused."
       },
       {
-        keywords: ['manager', 'contact point', 'who', 'project manager'],
-        response: "You will have a dedicated Project Manager as your primary point of contact. They ensure clear communication, timeline management, and that your feedback is perfectly implemented."
+        keywords: ['responsive', 'mobile', 'phone', 'tablet', 'accessibility', 'aoda', 'ada', 'wcag'],
+        response: "Absolutely. We design mobile-first with full responsiveness across all devices. We also adhere to WCAG accessibility standards (AA/AAA) ensuring your site is usable by everyone, improving reach and demonstrating social responsibility."
       },
       {
-        keywords: ['involved', 'involvement', 'feedback'],
-        response: "We believe in collaborative partnership. We will need your input at key milestones (Strategy, Design Concepts, Launch), but we handle the heavy lifting so you can focus on your business."
+        keywords: ['manager', 'contact point', 'who', 'project manager', 'communication'],
+        response: "You'll have a dedicated Project Manager as your primary contact. They ensure clear communication, timeline management, quality control, and that your feedback is perfectly implemented. No chasing multiple people."
       },
-
-      // 3. Content & Design
+      {
+        keywords: ['involved', 'involvement', 'feedback', 'my role', 'input'],
+        response: "We believe in collaborative partnership. You provide input at key milestones (Strategy, Design Concepts, Launch), but we handle the heavy lifting so you can focus on your business. We make it easy and efficient."
+      },
       {
         keywords: ['copy', 'copywriting', 'content', 'text', 'writing', 'image', 'photo', 'sourcing'],
-        response: "Yes, we can assist with content strategy and copywriting. We also handle art direction and image sourcing to ensure the visuals perfectly match the brand narrative."
+        response: "Yes, we provide content strategy, professional copywriting, and art direction. We source or create high-quality imagery that perfectly matches your brand narrative. Comprehensive content services are included."
       },
       {
-        keywords: ['cms', 'backend', 'manage', 'update', 'wordpress', 'sanity', 'shopify'],
-        response: "We build on modern, user-friendly CMS platforms like Sanity, Strapi, or WordPress, depending on your needs. You will have full control to update text and images easily after launch."
+        keywords: ['cms', 'backend', 'manage', 'update', 'wordpress', 'sanity', 'shopify', 'contentful'],
+        response: "We build on modern, user-friendly CMS platforms (Sanity, Contentful, WordPress, Shopify) based on your needs. You'll have intuitive control to update text and images easily after launch—no technical skills required."
       },
       {
-        keywords: ['dislike', 'don\'t like', 'change', 'revision', 'round'],
-        response: "Client satisfaction is paramount. Our process includes iterative feedback rounds. If the initial concept isn't hitting the mark, we revisit the strategy to align closer with your vision before moving forward."
-      },
-
-      // 4. Ownership & Support
-      {
-        keywords: ['own', 'ownership', 'rights', 'intellectual property', 'code'],
-        response: "You own everything. Once the final payment is settled, all code, design assets, and domains are 100% your property."
+        keywords: ['dislike', 'don\'t like', 'change', 'revision', 'round', 'unhappy with design'],
+        response: "Client satisfaction is paramount. Our process includes multiple feedback rounds. If the initial concept misses the mark, we revisit strategy to align closer with your vision before moving forward. We iterate until it's perfect."
       },
       {
-        keywords: ['support', 'maintenance', 'update', 'help', 'future'],
-        response: "We offer tailored post-launch maintenance packages. These cover security updates, plugin management, and small content tweaks to keep your site secure and fresh."
+        keywords: ['own', 'ownership', 'rights', 'intellectual property', 'code', 'who owns'],
+        response: "You own everything—100%. Once final payment is settled, all code, design assets, and domains are your property. Full intellectual property transfer with no strings attached."
       },
       {
-        keywords: ['security', 'hack', 'patch', 'safe'],
-        response: "Security is a priority. We use secure hosting environments, SSL certificates, and regular patching protocols to protect your digital assets from vulnerabilities."
-      },
-
-      // 5. Budget & Timeline
-      {
-        keywords: ['cost', 'price', 'budget', 'quote', 'money', 'fee', 'rate'],
-        response: "Every project is unique. To give you an accurate estimate, we prefer to discuss your specific requirements. Please email sahilsangwan1509@gmail.com for a curated proposal."
+        keywords: ['support', 'maintenance', 'update', 'help', 'future', 'after launch'],
+        response: "We offer tailored post-launch maintenance packages covering: security updates, plugin management, content updates, performance monitoring, and technical support. We keep your site secure, fast, and fresh long-term."
       },
       {
-        keywords: ['timeline', 'how long', 'weeks', 'months', 'deadline'],
-        response: "Typical timelines range from 4-8 weeks for a standard website, depending on complexity. We provide a detailed schedule at the start of the project."
+        keywords: ['security', 'hack', 'patch', 'safe', 'protection'],
+        response: "Security is a priority. We implement: SSL certificates, Web Application Firewalls, secure hosting, regular security patches, malware scanning, and backup protocols to protect your digital assets from vulnerabilities."
       },
       {
-        keywords: ['roi', 'result', 'performance', 'metric'],
-        response: "We focus on measurable results. Ask us about our case studies where we've helped clients increase conversion rates and brand engagement significantly."
-      },
-
-      // 6. Marketing
-      {
-        keywords: ['ads', 'advertising', 'paid', 'ppc', 'google ads', 'facebook ads'],
-        response: "Yes, our strategic marketing team manages paid advertising campaigns across Google, Meta, and LinkedIn to drive targeted traffic and conversions."
+        keywords: ['cost', 'price', 'budget', 'quote', 'money', 'fee', 'rate', 'pricing'],
+        response: "Every project is unique. To provide an accurate estimate, we discuss your specific requirements. Email sahilsangwan1509@gmail.com with your project details for a detailed, transparent proposal tailored to your goals."
       },
       {
-        keywords: ['marketing', 'strategy', 'growth', 'social'],
-        response: "We offer comprehensive marketing strategies including SEO, content planning, and social media growth to amplify your brand presence."
+        keywords: ['timeline', 'how long', 'weeks', 'months', 'deadline', 'duration'],
+        response: "Standard websites: 4-8 weeks depending on complexity. eCommerce/custom applications: 8-16 weeks. We provide detailed schedules at project start with clear milestones. Rush timelines available for urgent projects."
       },
       {
-        keywords: ['graphic', 'social media design', 'print', 'collateral'],
-        response: "We extend your brand identity beyond the web. We can handle graphic design for social media assets, pitch decks, and print materials."
+        keywords: ['roi', 'result', 'performance', 'metric', 'outcomes'],
+        response: "We focus on measurable results: traffic increases, conversion improvements, revenue growth, and brand engagement. Our case studies show clients achieving 150-300% traffic growth and 40-200% conversion lifts. We track and report on KPIs that matter to your business."
+      },
+      {
+        keywords: ['ads', 'advertising', 'paid', 'ppc', 'google ads', 'facebook ads', 'meta ads'],
+        response: "Yes, our strategic marketing team manages comprehensive paid advertising campaigns across Google Ads, Meta (Facebook/Instagram), LinkedIn, YouTube, and TikTok to drive targeted traffic and conversions with maximized ROI."
+      },
+      {
+        keywords: ['marketing', 'strategy', 'growth', 'social', 'digital marketing'],
+        response: "We offer complete marketing strategies including: SEO, content marketing, social media growth, email marketing, conversion optimization, and analytics. We create integrated campaigns that amplify your brand presence and drive sustainable growth."
+      },
+      {
+        keywords: ['graphic', 'social media design', 'print', 'collateral', 'design assets'],
+        response: "We extend your brand identity across all touchpoints: social media assets, email templates, pitch decks, business cards, brochures, packaging design, and print materials. Consistent, stunning design everywhere."
       },
       
-      // General
+      // ===== GENERAL / GREETING =====
       {
-        keywords: ['hello', 'hi', 'hey', 'start'],
-        response: "Hello! Welcome to Enwento Studio. Ask me about our Portfolio, Process, Pricing, or Marketing services."
+        keywords: ['hello', 'hi', 'hey', 'start', 'good morning', 'good afternoon'],
+        response: "Hello! Welcome to Enwento Studio. I'm here to answer questions about our Branding, Web Development, eCommerce, SEO, Paid Advertising, Social Media Marketing, or to help you get started with a project. What interests you?"
       },
       {
-        keywords: ['sahil', 'asif', 'founder'],
-        response: "Enwento was founded by Sahil Sangwan and Asif Ali Shah to bridge the gap between aesthetic beauty and functional digital strategy."
+        keywords: ['sahil', 'asif', 'founder', 'team', 'who runs'],
+        response: "Enwento Studio was founded by Sahil Sangwan and Asif Ali Shah, combining world-class design expertise with strategic marketing acumen. Our mission: bridge the gap between aesthetic beauty and functional digital strategy that drives real business results."
       },
       {
-        keywords: ['contact', 'email', 'hire', 'reach'],
-        response: "Ready to start? Contact us at sahilsangwan1509@gmail.com."
+        keywords: ['contact', 'email', 'hire', 'reach', 'get in touch', 'talk to human'],
+        response: "Ready to elevate your brand? Contact us at sahilsangwan1509@gmail.com. We typically respond within 2 hours and can schedule a strategy call within 24 hours."
+      },
+      {
+        keywords: ['thank', 'thanks', 'appreciate'],
+        response: "You're very welcome! If you have any other questions or are ready to discuss your project, feel free to ask or email sahilsangwan1509@gmail.com. We're here to help you succeed."
       }
     ];
 
+    // ============================================================
+    // IMPROVED RESPONSE MATCHING FUNCTION
+    // ============================================================
     function getResponse(text) {
-      text = text.toLowerCase();
+      text = text.toLowerCase().trim();
+      
+      // Score each knowledge base entry
+      let bestMatch = null;
+      let highestScore = 0;
+      
       for (let entry of knowledgeBase) {
-        if (entry.keywords.some(k => text.includes(k))) {
-          return entry.response;
+        let score = 0;
+        let matchedKeywords = [];
+        
+        // Check each keyword
+        for (let keyword of entry.keywords) {
+          if (text.includes(keyword.toLowerCase())) {
+            // Longer keyword matches get higher scores (more specific)
+            score += keyword.split(' ').length;
+            matchedKeywords.push(keyword);
+          }
+        }
+        
+        // If this entry scored higher than previous best
+        if (score > highestScore) {
+          highestScore = score;
+          bestMatch = entry;
         }
       }
-      return "I'm focusing on Enwento's services right now. You can ask about our Branding, Web Design, Marketing Strategies, or Contact info.";
+      
+      // If we found a good match (at least 1 keyword matched)
+      if (bestMatch && highestScore > 0) {
+        return bestMatch.response;
+      }
+      
+      // Fallback for no match
+      return "I'm here to help with questions about Enwento's services: Web Development, eCommerce Solutions, Branding & Strategy, SEO, Social Media Marketing, Paid Advertising, or getting started with a project. Could you rephrase your question or email sahilsangwan1509@gmail.com for detailed assistance?";
     }
 
+    // ============================================================
+    // CHAT UI FUNCTIONS
+    // ============================================================
     function addMessage(text, sender) {
       const msgDiv = document.createElement('div');
       msgDiv.classList.add('message', sender);
@@ -1414,17 +1761,20 @@
       addMessage(text, 'user');
       chatInput.value = '';
 
-      // Simulate network delay / thinking
+      // Show typing indicator
       showTyping();
       
-      // Artificial delay for realism
+      // Simulate realistic AI thinking time (800-1800ms)
+      const thinkingTime = 800 + Math.random() * 1000;
+      
       setTimeout(() => {
         removeTyping();
         const response = getResponse(text);
         addMessage(response, 'bot');
-      }, 1000 + Math.random() * 1000);
+      }, thinkingTime);
     }
 
+    // Event listeners
     sendBtn.addEventListener('click', handleUserMessage);
     chatInput.addEventListener('keypress', (e) => {
       if (e.key === 'Enter') handleUserMessage();
