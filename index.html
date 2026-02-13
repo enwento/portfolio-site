@@ -37,11 +37,6 @@
     "url": "https://enwento.com",
     "telephone": "",
     "priceRange": "$$$$",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "",
-      "addressCountry": "IN"
-    },
     "sameAs": [
       "https://x.com/SahilSangwann",
       "https://x.com/Asifalishahh"
@@ -200,12 +195,15 @@
     }
     
     .logo {
-      font-family: 'Syne', sans-serif;
-      font-weight: 800;
-      font-size: 24px;
-      letter-spacing: -1px;
-      color: white;
-      position: relative;
+      display: block;
+      width: 140px;
+      transition: opacity 0.3s ease;
+    }
+
+    .logo img {
+      width: 100%;
+      height: auto;
+      display: block;
     }
     
     .nav-links {
@@ -244,7 +242,7 @@
       min-height: 100vh;
       display: flex;
       align-items: center;
-      padding-top: 100px;
+      padding-top: 60px;
       position: relative;
     }
     
@@ -263,6 +261,16 @@
       z-index: 2;
     }
     
+    .hero-meta-group {
+      margin-bottom: 24px;
+      opacity: 0;
+      animation: fadeIn 1s forwards 0.5s;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
     .hero-label {
       display: inline-block;
       border: 1px solid rgba(255,255,255,0.2);
@@ -271,9 +279,15 @@
       font-size: 12px;
       text-transform: uppercase;
       letter-spacing: 0.1em;
-      margin-bottom: 24px;
-      opacity: 0;
-      animation: fadeIn 1s forwards 0.5s;
+    }
+
+    .hero-sub-label {
+      font-family: 'Syne', sans-serif; /* Changed to Syne for bolder look */
+      font-size: 13px; /* Slightly larger */
+      color: var(--text-primary); /* Changed to white */
+      font-weight: 700; /* Bold */
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
     }
     
     .hero-title {
@@ -292,6 +306,67 @@
       margin-bottom: 40px;
       opacity: 0;
       animation: fadeIn 1s forwards 1s;
+    }
+
+    .hero-footer-actions {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .hero-tagline-filler {
+      font-family: 'Syne', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      opacity: 0;
+      animation: fadeIn 1s forwards 1.4s;
+    }
+    
+    /* Scroll Indicator */
+    .scroll-indicator {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      opacity: 0;
+      animation: fadeIn 1s forwards 2s;
+    }
+
+    .scroll-text {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--text-muted);
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 60px;
+      background: linear-gradient(to bottom, var(--text-muted), transparent);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .scroll-line::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 50%;
+      background: var(--accent);
+      animation: scrollDown 2s infinite;
+    }
+
+    @keyframes scrollDown {
+      0% { top: -100%; }
+      100% { top: 100%; }
     }
     
     /* Magnetic Button */
@@ -621,7 +696,9 @@
   <!-- Header -->
   <header class="header">
     <div class="container nav-inner">
-      <a href="#" class="logo hover-trigger">ENWENTO</a>
+      <a href="#" class="logo hover-trigger">
+        <img src="logovector.svg" alt="Enwento Studio">
+      </a>
       <nav class="nav-links">
         <a href="#work" class="nav-item hover-trigger">Work</a>
         <a href="#services" class="nav-item hover-trigger">Services</a>
@@ -636,7 +713,10 @@
     <section class="hero">
       <div class="hero-bg-glow"></div>
       <div class="container hero-content">
-        <span class="hero-label">Global Creative Agency</span>
+        <div class="hero-meta-group">
+          <span class="hero-label">Global Creative Agency</span>
+          <span class="hero-sub-label">WE CREATE PRESENCE</span>
+        </div>
         
         <h1 class="hero-title">
           <span class="reveal-text"><span>We Engineer</span></span>
@@ -648,9 +728,18 @@
           Enwento Studio combines visceral design with strategic intelligence to build brands that define the future.
         </p>
         
-        <a href="#work" class="btn-magnetic hover-trigger">
-          <span>View Our Work</span>
-        </a>
+        <div class="hero-footer-actions">
+          <a href="#work" class="btn-magnetic hover-trigger">
+            <span>View Our Work</span>
+          </a>
+          <span class="hero-tagline-filler">Forging icons from the abstract.</span>
+        </div>
+      </div>
+
+      <!-- Scroll Indicator -->
+      <div class="scroll-indicator">
+        <span class="scroll-text">Scroll</span>
+        <div class="scroll-line"></div>
       </div>
     </section>
 
@@ -806,14 +895,17 @@
 
         <div class="footer-bottom">
           <div class="brand-info">
-            <a href="#" class="logo" style="display:block; margin-bottom: 20px;">ENWENTO</a>
+            <a href="#" class="logo" style="display:block; margin-bottom: 20px;">
+              <img src="logovector.svg" alt="Enwento Studio">
+            </a>
             <p style="color: var(--text-muted); max-width: 300px;">
-              Premium digital design agency based in Delhi, serving clients worldwide.
+              Premium digital design agency serving clients worldwide.
             </p>
           </div>
 
           <div class="footer-socials">
-            <a href="https://x.com/SahilSangwann" class="social-link hover-trigger">Twitter</a>
+            <a href="https://x.com/SahilSangwann" class="social-link hover-trigger">Twitter (Sahil)</a>
+            <a href="https://x.com/Asifalishahh" class="social-link hover-trigger">Twitter (Asif)</a>
           </div>
 
           <div class="copyright">
