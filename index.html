@@ -259,16 +259,15 @@
     .hero-content {
       position: relative;
       z-index: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
     
     .hero-meta-group {
       margin-bottom: 24px;
       opacity: 0;
       animation: fadeIn 1s forwards 0.5s;
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 16px;
     }
 
     .hero-label {
@@ -281,22 +280,30 @@
       letter-spacing: 0.1em;
     }
 
-    .hero-sub-label {
-      font-family: 'Syne', sans-serif; /* Changed to Syne for bolder look */
-      font-size: 13px; /* Slightly larger */
-      color: var(--text-primary); /* Changed to white */
-      font-weight: 700; /* Bold */
+    .hero-tagline-large {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      /* Significantly increased size to fill space */
+      font-size: clamp(40px, 7vw, 90px);
+      color: #ffffff;
       text-transform: uppercase;
-      letter-spacing: 0.15em;
+      line-height: 1;
+      letter-spacing: 0.02em;
+      margin-top: 0;
+      margin-bottom: 24px;
+      opacity: 0;
+      animation: fadeIn 1s forwards 0.3s;
+      display: block;
     }
     
     .hero-title {
-      font-size: clamp(60px, 9vw, 130px);
+      font-size: clamp(40px, 5vw, 80px);
       letter-spacing: -0.04em;
-      margin-left: -5px;
+      margin-left: -3px;
       margin-bottom: 24px;
       color: white;
-      mix-blend-mode: difference;
+      /* Removed mix-blend-mode to ensure visibility */
+      opacity: 0.9; 
     }
     
     .hero-description {
@@ -315,60 +322,6 @@
       flex-wrap: wrap;
     }
 
-    .hero-tagline-filler {
-      font-family: 'Syne', sans-serif;
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--text-muted);
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      opacity: 0;
-      animation: fadeIn 1s forwards 1.4s;
-    }
-    
-    /* Scroll Indicator */
-    .scroll-indicator {
-      position: absolute;
-      bottom: 40px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
-      opacity: 0;
-      animation: fadeIn 1s forwards 2s;
-    }
-
-    .scroll-text {
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.2em;
-      color: var(--text-muted);
-    }
-
-    .scroll-line {
-      width: 1px;
-      height: 60px;
-      background: linear-gradient(to bottom, var(--text-muted), transparent);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .scroll-line::after {
-      content: '';
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 50%;
-      background: var(--accent);
-      animation: scrollDown 2s infinite;
-    }
-
-    @keyframes scrollDown {
-      0% { top: -100%; }
-      100% { top: 100%; }
-    }
-    
     /* Magnetic Button */
     .btn-magnetic {
       display: inline-flex;
@@ -715,8 +668,10 @@
       <div class="container hero-content">
         <div class="hero-meta-group">
           <span class="hero-label">Global Creative Agency</span>
-          <span class="hero-sub-label">WE CREATE PRESENCE</span>
         </div>
+        
+        <!-- Large Bold Tagline filling the void -->
+        <div class="hero-tagline-large">WE CREATE PRESENCE</div>
         
         <h1 class="hero-title">
           <span class="reveal-text"><span>We Engineer</span></span>
@@ -732,14 +687,7 @@
           <a href="#work" class="btn-magnetic hover-trigger">
             <span>View Our Work</span>
           </a>
-          <span class="hero-tagline-filler">Forging icons from the abstract.</span>
         </div>
-      </div>
-
-      <!-- Scroll Indicator -->
-      <div class="scroll-indicator">
-        <span class="scroll-text">Scroll</span>
-        <div class="scroll-line"></div>
       </div>
     </section>
 
